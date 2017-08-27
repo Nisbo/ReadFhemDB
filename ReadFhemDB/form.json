@@ -13,6 +13,6 @@
 	],
 	"actions":
 	[
-		{ "type": "Button", "label": "Update", "onClick": "RFHEM_MeineErsteEigeneFunktion($id);" }
+		{ "type": "Button", "label": "Update", "onClick": "RFHEM_readValuesFromDB($id);" }
 	]
 }
