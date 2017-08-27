@@ -2,11 +2,14 @@
 	"elements":
 	[
 		{ "name": "host",	"type": "ValidationTextBox", "caption": "Host" },
+		{ "name": "port",	"type": "ValidationTextBox", "caption": "Port" },
 		{ "name": "database",	"type": "ValidationTextBox", "caption": "MySQL Database" },
 		{ "name": "user",	"type": "ValidationTextBox", "caption": "MySQL Username" },
 		{ "name": "password",	"type": "ValidationTextBox", "caption": "MySQL Password" },
 		{ "name": "device",	"type": "ValidationTextBox", "caption": "FHEM Device" },
-		{ "name": "reading",	"type": "ValidationTextBox", "caption": "FHEM Reading" }
+		{ "name": "reading1",	"type": "ValidationTextBox", "caption": "FHEM Reading 1" },
+		{ "name": "reading2",	"type": "ValidationTextBox", "caption": "FHEM Reading 2" },
+		{ "name": "reading3",	"type": "ValidationTextBox", "caption": "FHEM Reading 3" }
 	],
 	"actions":
 	[
