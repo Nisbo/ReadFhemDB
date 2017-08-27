@@ -45,12 +45,14 @@
 			$database = $this->ReadPropertyString("database");
 			$password = $this->ReadPropertyString("password");
 			$device   = $this->ReadPropertyString("device");
-			$reading  = $this->ReadPropertyString("reading");
+			$reading1 = $this->ReadPropertyString("reading1");
+			$reading2 = $this->ReadPropertyString("reading2");
+			$reading3 = $this->ReadPropertyString("reading3");
 
 
 			$con = mysqli_connect($host, $user, $password, $database);
 			$output = "";
-			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND READING = '" . addslashes($reading) . "' ORDER BY TIMESTAMP DESC LIMIT 1";
+			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND (READING = '" . addslashes($reading1) . "' OR READING = '" . addslashes($reading2) . "' OR READING = '" . addslashes($reading3) . "') ORDER BY TIMESTAMP DESC LIMIT 1";
 			$query = mysqli_query($con, $strSQL);
 			while($result = mysqli_fetch_array($query)){
 				// this is only for testing, no logical background ;)
