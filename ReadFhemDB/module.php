@@ -34,10 +34,10 @@
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
         * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
         *
-        * RFHEM_MeineErsteEigeneFunktion($id);
+        * RFHEM_ReadValuesFromDB($id);
         *
         */
-		public function MeineErsteEigeneFunktion() {
+		public function readValuesFromDB() {
             echo $this->InstanceID;
 			$host     = $this->ReadPropertyString("host");
 			$port     = $this->ReadPropertyString("port");
@@ -49,10 +49,15 @@
 			$reading2 = $this->ReadPropertyString("reading2");
 			$reading3 = $this->ReadPropertyString("reading3");
 
+			$redQuery = mergeRedingQuery("",        $reading1);
+			$redQuery = mergeRedingQuery($redQuery, $reading2);
+			$redQuery = mergeRedingQuery($redQuery, $reading3);
+
+
 
 			$con = mysqli_connect($host, $user, $password, $database);
 			$output = "";
-			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND (READING = '" . addslashes($reading1) . "' OR READING = '" . addslashes($reading2) . "' OR READING = '" . addslashes($reading3) . "') ORDER BY TIMESTAMP DESC";
+			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND (" . $redQuery . ") ORDER BY TIMESTAMP DESC";
 			$query = mysqli_query($con, $strSQL);
 			while($result = mysqli_fetch_array($query)){
 				// this is only for testing, no logical background ;)
@@ -62,6 +67,20 @@
 			echo "{\"" . $device . "\":{" . $output . "}";
 			mysqli_close($con);
         }
+
+		private function mergeRedingQuery($query, $new){
+			if(strlen($new) == 0) return $query;
+
+			$merged = $query;
+
+			if(strlen($merged) > 0){
+				$merged .= " OR READING = '" . addslashes($new) . "' ";
+			}else{
+				$merged = " READING = '" . addslashes($new) . "' ";
+			}
+
+			return $merged;
+		}
 	
 	}
 ?>
