@@ -1,1 +1,16 @@
 
+{
+	"elements":
+	[
+		{ "name": "host",	"type": "ValidationTextBox", "caption": "Host" },
+		{ "name": "database",	"type": "ValidationTextBox", "caption": "MySQL Database" },
+		{ "name": "user",	"type": "ValidationTextBox", "caption": "MySQL Username" },
+		{ "name": "password",	"type": "ValidationTextBox", "caption": "MySQL Password" },
+		{ "name": "device",	"type": "ValidationTextBox", "caption": "FHEM Device" },
+		{ "name": "reading",	"type": "ValidationTextBox", "caption": "FHEM Reading" }
+	],
+	"actions":
+	[
+		{ "type": "Button", "label": "Update", "onClick": "RFHEM_MeineErsteEigeneFunktion($id);" }
+	]
+}
