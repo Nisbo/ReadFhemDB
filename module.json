@@ -1,1 +1,15 @@
 
+{
+    "id": "{3815A639-7291-426E-8B3B-75C1D3D85222}",
+    "name": "ReadFhemDB",
+    "type": 3,
+    "vendor": "Nisbo",
+    "aliases": 
+    [
+        "ReadFhemDB"
+    ],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "RFHEM"
+}
