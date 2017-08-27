@@ -1,0 +1,12 @@
+{
+	"id": "{9E9E310A-36BB-47D4-BFBA-D82D73D9AFAA}",
+	"author": "Nisbo",
+	"name": "FHEM Modul",
+	"url": "",
+	"compatibility": {
+		"version": "4.2"
+	},
+	"version": "1.0",
+	"build": 0,
+	"date": 0
+}
