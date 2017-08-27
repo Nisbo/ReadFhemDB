@@ -52,7 +52,7 @@
 
 			$con = mysqli_connect($host, $user, $password, $database);
 			$output = "";
-			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND (READING = '" . addslashes($reading1) . "' OR READING = '" . addslashes($reading2) . "' OR READING = '" . addslashes($reading3) . "') ORDER BY TIMESTAMP DESC LIMIT 1";
+			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND (READING = '" . addslashes($reading1) . "' OR READING = '" . addslashes($reading2) . "' OR READING = '" . addslashes($reading3) . "') ORDER BY TIMESTAMP DESC";
 			$query = mysqli_query($con, $strSQL);
 			while($result = mysqli_fetch_array($query)){
 				// this is only for testing, no logical background ;)
