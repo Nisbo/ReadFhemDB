@@ -53,13 +53,15 @@
 			$redQuery = $this->mergeReadingQuery($redQuery, $reading2);
 			$redQuery = $this->mergeReadingQuery($redQuery, $reading3);
 
-
-
 			$con = mysqli_connect($host, $user, $password, $database);
 			$output = "";
 			$strSQL = "SELECT * FROM current WHERE DEVICE = '" . addslashes($device) . "' AND (" . $redQuery . ") ORDER BY TIMESTAMP DESC";
 			$query = mysqli_query($con, $strSQL);
 			while($result = mysqli_fetch_array($query)){
+				if($result['READING'] == $reading1) SetValueFloat($this->GetIDForIdent("value1"), floatval($result['VALUE']));
+				if($result['READING'] == $reading2) SetValueFloat($this->GetIDForIdent("value2"), floatval($result['VALUE']));
+				if($result['READING'] == $reading3) SetValueFloat($this->GetIDForIdent("value3"), floatval($result['VALUE']));
+
 				// this is only for testing, no logical background ;)
 				if($output != "") $output .= ", ";
 				$output .= '"'.$result['READING'].'" : "'.htmlspecialchars($result['VALUE']).'"';
