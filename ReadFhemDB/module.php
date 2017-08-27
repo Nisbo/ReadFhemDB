@@ -1,4 +1,3 @@
-
 <?
 	class ReadFhemDB extends IPSModule {
 		
