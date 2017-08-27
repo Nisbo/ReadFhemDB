@@ -49,9 +49,9 @@
 			$reading2 = $this->ReadPropertyString("reading2");
 			$reading3 = $this->ReadPropertyString("reading3");
 
-			$redQuery = mergeRedingQuery("",        $reading1);
-			$redQuery = mergeRedingQuery($redQuery, $reading2);
-			$redQuery = mergeRedingQuery($redQuery, $reading3);
+			$redQuery = RFHEM_mergeReadingQuery("",        $reading1);
+			$redQuery = RFHEM_mergeReadingQuery($redQuery, $reading2);
+			$redQuery = RFHEM_mergeReadingQuery($redQuery, $reading3);
 
 
 
@@ -68,7 +68,7 @@
 			mysqli_close($con);
         }
 
-		private function mergeRedingQuery($query, $new){
+		private function mergeReadingQuery($query, $new){
 			if(strlen($new) == 0) return $query;
 
 			$merged = $query;
